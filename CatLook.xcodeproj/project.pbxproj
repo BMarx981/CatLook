@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		D31B8CCB20C02D48008D49E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B8CCA20C02D48008D49E0 /* AppDelegate.swift */; };
-		D31B8CCD20C02D48008D49E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B8CCC20C02D48008D49E0 /* ViewController.swift */; };
 		D31B8CD020C02D48008D49E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D31B8CCE20C02D48008D49E0 /* Main.storyboard */; };
 		D31B8CD220C02D48008D49E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D31B8CD120C02D48008D49E0 /* Assets.xcassets */; };
 		D31B8CD520C02D48008D49E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D31B8CD320C02D48008D49E0 /* LaunchScreen.storyboard */; };
+		D31B8CDD20C02DD4008D49E0 /* CatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B8CDC20C02DD4008D49E0 /* CatCollectionViewCell.swift */; };
+		D31B8CDF20C02DE9008D49E0 /* CatCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B8CDE20C02DE9008D49E0 /* CatCollectionViewController.swift */; };
+		D31B8CE120C035C7008D49E0 /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31B8CE020C035C7008D49E0 /* Cat.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D31B8CC720C02D48008D49E0 /* CatLook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatLook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D31B8CCA20C02D48008D49E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D31B8CCC20C02D48008D49E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D31B8CCF20C02D48008D49E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D31B8CD120C02D48008D49E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D31B8CD420C02D48008D49E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D31B8CD620C02D48008D49E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D31B8CDC20C02DD4008D49E0 /* CatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewCell.swift; sourceTree = "<group>"; };
+		D31B8CDE20C02DE9008D49E0 /* CatCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewController.swift; sourceTree = "<group>"; };
+		D31B8CE020C035C7008D49E0 /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +59,10 @@
 			isa = PBXGroup;
 			children = (
 				D31B8CCA20C02D48008D49E0 /* AppDelegate.swift */,
-				D31B8CCC20C02D48008D49E0 /* ViewController.swift */,
 				D31B8CCE20C02D48008D49E0 /* Main.storyboard */,
+				D31B8CDC20C02DD4008D49E0 /* CatCollectionViewCell.swift */,
+				D31B8CDE20C02DE9008D49E0 /* CatCollectionViewController.swift */,
+				D31B8CE020C035C7008D49E0 /* Cat.swift */,
 				D31B8CD120C02D48008D49E0 /* Assets.xcassets */,
 				D31B8CD320C02D48008D49E0 /* LaunchScreen.storyboard */,
 				D31B8CD620C02D48008D49E0 /* Info.plist */,
@@ -136,8 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D31B8CCD20C02D48008D49E0 /* ViewController.swift in Sources */,
+				D31B8CE120C035C7008D49E0 /* Cat.swift in Sources */,
+				D31B8CDF20C02DE9008D49E0 /* CatCollectionViewController.swift in Sources */,
 				D31B8CCB20C02D48008D49E0 /* AppDelegate.swift in Sources */,
+				D31B8CDD20C02DD4008D49E0 /* CatCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
