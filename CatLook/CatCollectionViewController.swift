@@ -12,14 +12,28 @@ private let reuseIdentifier = "cellId"
 
 class CatCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
+    var pageNum = 0
     var cats = [Cat]()
     var catImages = [UIImage?]()
     var dataTask: URLSessionDataTask?
-    let url = URL(string: "https://chex-triplebyte.herokuapp.com/api/cats?page=0")
+    var urlString: String = "https://chex-triplebyte.herokuapp.com/api/cats?page=0"
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: .valueChanged)
+        return refreshControl
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchCatImages()
+        let url = URL(string: urlString)
+        fetchCatImages(url: url!)
+        collectionView?.addSubview(refreshControl)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        collectionView?.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,11 +85,22 @@ class CatCollectionViewController: UICollectionViewController, UICollectionViewD
     }
     */
     
+    //MARK: HandleRefresh
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        cats.removeAll()
+        let comp = urlString.components(separatedBy: "page=")
+        pageNum += 1
+        let newString = "\(comp[0])page=\(pageNum)"
+        fetchCatImages(url: URL(string: newString)!)
+        collectionView?.reloadData()
+        refreshControl.endRefreshing()
+    }
+    
     //MARK: FetchCatImages
-    func fetchCatImages() {
+    func fetchCatImages(url: URL) {
         let urlSession = URLSession.shared
         dataTask?.cancel()
-        dataTask = urlSession.dataTask(with: url!) {
+        dataTask = urlSession.dataTask(with: url) {
             data, response, error in
             if let error = error as NSError?, error.code == -999 {
                 return
@@ -102,17 +127,14 @@ class CatCollectionViewController: UICollectionViewController, UICollectionViewD
                                 
                                 let getImageFromURL = urlSession.dataTask(with: URL(string: cat.imageURL)!) {
                                     (data, response, error) in
-                                    
                                     if let e = error {
                                         print("We got an error \(e)")
                                     } else {
-                                        print("check point 1")
                                         if response as? HTTPURLResponse != nil {
-                                            print("check point 2")
                                             if let imageData = data {
-                                                print("check point 3")
                                                 let image = UIImage(data: imageData)
                                                 cat.image = image!
+                                                self.collectionView?.reloadData()
                                             }
                                         }
                                     }
@@ -122,8 +144,8 @@ class CatCollectionViewController: UICollectionViewController, UICollectionViewD
                             }
                             self.cats.append(cat)
                         }
-                        self.collectionView?.reloadData()
                     }
+                    self.collectionView?.reloadData()
                 }
             }
         }
