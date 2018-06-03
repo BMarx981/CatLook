@@ -58,6 +58,7 @@ class CatCollectionViewController: UICollectionViewController, UICollectionViewD
         cell.label2?.text = cats[indexPath.item].date
         cell.image?.image = cats[indexPath.item].image
         cell.descript?.text = cats[indexPath.item].description
+        cell.descript?.textColor = .white
         cell.backgroundColor = .gray
     
         return cell
